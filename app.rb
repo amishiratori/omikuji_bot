@@ -43,7 +43,14 @@ post '/message' do
                       }
                     end
                     client.reply_message(event['replyToken'], message)
-                break
+                    break
+                  else
+                    response_message = '「おみくじ」と送信すると、おみくじが引けるよ！'
+                      message = {
+                        type: 'text',
+                        text: response_message
+                      }
+                    client.reply_message(event['replyToken'], message)
           end
         end
   end
